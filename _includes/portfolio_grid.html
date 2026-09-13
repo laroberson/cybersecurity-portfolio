@@ -3,24 +3,47 @@
   <div class="container portfolio-flex-grid">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2>Portfolio</h2>
+        <p class="eyebrow section-eyebrow">Selected work</p>
+        <h2>Security case studies</h2>
+        <p class="section-intro">Each case study documents the question, method, and security outcome behind the work.</p>
         <hr class="star-primary">
       </div>
     </div>
-    <div class="portfolio-flex-row">
-      {% for post in site.posts %}
-      <div class="portfolio-flex-item portfolio-item">
-        <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
-          <div class="caption">
-            <div class="caption-content">
-              <i class="fa fa-search-plus fa-3x"></i>
-            </div>
-          </div>
-          <img src="img/portfolio/{{ post.img }}" class="portfolio-image" alt="{{ post.alt }}">
-        </a>
-        <h3 class="text-center">{{ post.title }}</h3>
+    {% assign case_studies = site.posts | where: "group", "case-studies" %}
+    {% assign labs = site.posts | where: "group", "labs" %}
+    {% assign tools = site.posts | where: "group", "tools" %}
+
+    {% if case_studies.size > 0 %}
+    <div class="project-group">
+      <h3 class="project-group-title">Case studies</h3>
+      <div class="portfolio-flex-row">
+        {% for post in case_studies %}
+          {% include project_card.html post=post %}
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
+    {% endif %}
+
+    {% if labs.size > 0 %}
+    <div class="project-group">
+      <h3 class="project-group-title">Labs &amp; learning journal</h3>
+      <div class="portfolio-flex-row">
+        {% for post in labs %}
+          {% include project_card.html post=post %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if tools.size > 0 %}
+    <div class="project-group">
+      <h3 class="project-group-title">Security tooling</h3>
+      <div class="portfolio-flex-row">
+        {% for post in tools %}
+          {% include project_card.html post=post %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
   </div>
 </section>

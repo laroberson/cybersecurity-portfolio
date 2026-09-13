@@ -1,11 +1,13 @@
 # Site settings
 title: Lekelan Roberson
 email: lekelanr@gmail.com
-url: https://laroberson.github.io/cybersecurity-portfolio
+url: https://laroberson.github.io
+baseurl: /cybersecurity-portfolio
 description: "Portfolio of cybersecurity work samples for a junior-level cyber security professional."
 keywords: "cybersecurity, cyber, security, portfolio, tech"
 skills: "Cybersecurity | Security Analytics & Offensive Security"
 meta_author: Roberson Lekelan
+social_image: /img/og/portfolio.png
 
 # Google webmaster tools
 google_verify:
@@ -28,7 +30,7 @@ color:
   primary: DFAF49
   primary-rgb: "223,175,73"
   secondary: 030B1B
-  secondary-dark: 050504
+  secondary-dark: "050504"
 
 # Footer settings
 footer:
@@ -46,7 +48,8 @@ social:
 
 # Email Address (make sure to include "mailto:" before your email!)
 email:
-  email-url: mailto:lekelanr@gmail.com
+  # email-url: mailto:lekelanr@gmail.com
+  email-url: "mailto:lekelanr@gmail.com?subject=Portfolio%20Inquiry%20for%20Lekelan%20Roberson&body=Hi%20Lekelan%2C%0A%0AI%20found%20your%20cybersecurity%20portfolio%20and%20would%20like%20to%20connect%20about%3A%0A%0A%0AThank%20you%2C%0A"
 
 # Postal address (add as many lines as necessary)
 location:
@@ -58,12 +61,4 @@ Cyber icons created by <a href="https://www.flaticon.com/free-icons/cyber-attack
 
 # Build settings
 markdown: kramdown
-permalink: pretty
-
-#for posts
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      permalink: ""
+permalink: /work/:title/

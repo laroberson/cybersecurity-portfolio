@@ -1,11 +1,36 @@
 ---
-layout: default
+layout: case-study
 modal-id: 3
 title: SQL Query
+group: labs
+icon: fa-database
 img: sql.png
 alt: image-alt
 
-project-url: https://docs.google.com/document/d/1lR2Cu81H1f4-CBX-CtuT57KGnpZm8GFrarEhWZv0EOU/view?usp=sharing
+project-url: https://docs.google.com/document/d/1N1ylDc2mzzYyF2ojhSJJZTVlVuklvKfDEM6GaYLW8FI/view?usp=sharing
 
 description: Implemented various JOIN commands (inner, left, right, self, and cross) in MySQL, utilizing UNION and UNION ALL to efficiently combine and query data from multiple tables.
+scenario: A SQL practice environment contained related tables that needed to be combined to answer questions that a single table could not address.
+objective: Build accurate queries that combine related records while preserving the intended relationships and result set.
+tools:
+  - MySQL
+  - SQL JOIN operations
+  - UNION and UNION ALL
+tasks:
+  - Used INNER, LEFT, RIGHT, SELF, and CROSS JOIN operations to combine related tables.
+  - Compared UNION with UNION ALL to control whether duplicate results are retained.
+  - Validated query output against the intended relationship and filtering logic.
+findings-label: Skills demonstrated
+findings:
+  - title: Join selection
+    detail: Different JOIN types determine whether unmatched records are retained, which directly affects the meaning of a result set.
+  - title: Result-set control
+    detail: UNION and UNION ALL provide different ways to combine query results depending on whether duplicate rows matter.
+  - title: Query reasoning
+    detail: Accurate multi-table queries require clear table relationships, aliases, and deliberate conditions.
+recommendations-label: Next step
+recommendations:
+  - Use meaningful aliases and explicit join conditions so queries stay easy to review.
+  - Check row counts and sample outputs before relying on a query for analysis.
+  - Continue applying SQL techniques to security-log and authentication datasets.
 ---

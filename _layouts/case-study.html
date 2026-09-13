@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+
+<body class="case-study-page">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right case-study-nav">
+        <li><a href="{{ '/#portfolio' | relative_url }}">All work</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="case-study-main">
+    <article class="case-study container">
+      <a class="back-link" href="{{ '/#portfolio' | relative_url }}"><i class="fa fa-arrow-left"></i> Back to portfolio</a>
+      <p class="eyebrow">{{ page.group | replace: '-', ' ' }}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="case-study-summary">{{ page.description }}</p>
+
+      {% if page.scenario %}
+        <section class="case-study-section case-study-scenario">
+          <p class="eyebrow">Scenario</p>
+          <p>{{ page.scenario }}</p>
+        </section>
+
+        <div class="case-study-grid">
+          <section class="case-study-section">
+            <h2>Objective</h2>
+            <p>{{ page.objective }}</p>
+          </section>
+          <section class="case-study-section">
+            <h2>Tools &amp; framework</h2>
+            <ul class="case-study-list">
+              {% for tool in page.tools %}
+                <li>{{ tool }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        </div>
+
+        <section class="case-study-section">
+          <h2>What I did</h2>
+          <ol class="case-study-list case-study-steps">
+            {% for task in page.tasks %}
+              <li>{{ task }}</li>
+            {% endfor %}
+          </ol>
+        </section>
+
+        <section class="case-study-section">
+          <h2>{{ page.findings-label | default: "Key observations" }}</h2>
+          <div class="finding-grid">
+            {% for finding in page.findings %}
+              <article class="finding-card">
+                <h3>{{ finding.title }}</h3>
+                <p>{{ finding.detail }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="case-study-section">
+          <h2>{{ page.recommendations-label | default: "Recommendations" }}</h2>
+          <ul class="case-study-list">
+            {% for recommendation in page.recommendations %}
+              <li>{{ recommendation }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+
+      {% unless page.project-url and page.project-url != "" %}
+        <div class="work-in-progress">
+          <p class="eyebrow">Work in progress</p>
+          <h2>Case study in development</h2>
+          <p>This project is still being prepared for publication. Check back soon for the completed case study and supporting evidence.</p>
+        </div>
+      {% endunless %}
+
+      <section class="case-study-context">
+        <h2>Context</h2>
+        <p>Coursework case study based on a fictional scenario from the Google Cybersecurity Professional Certificate. This page presents my work and learning; it is not client work.</p>
+      </section>
+
+      {% if page.project-url and page.project-url != "" %}
+        <a class="btn btn-primary case-study-button" href="{{ page.project-url }}" target="_blank" rel="noopener">View original supporting document <i class="fa fa-arrow-up-right-from-square"></i></a>
+      {% endif %}
+    </article>
+  </main>
+
+  {% include footer.html %}
+  {% include js.html %}
+</body>
+</html>

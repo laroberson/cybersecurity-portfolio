@@ -1,0 +1,17 @@
+<article class="portfolio-flex-item portfolio-item">
+  <a href="{{ include.post.url | relative_url }}" class="portfolio-link">
+    <div class="caption">
+      <div class="caption-content">
+        <span>Open case study <i class="fa fa-arrow-right"></i></span>
+      </div>
+    </div>
+    <div class="project-visual" aria-hidden="true">
+      <i class="fa-solid {{ include.post.icon | default: 'fa-shield-halved' }}"></i>
+    </div>
+  </a>
+  <div class="project-card-copy">
+    <h3>{{ include.post.title }}</h3>
+    <p>{{ include.post.description }}</p>
+    <a class="project-link" href="{{ include.post.url | relative_url }}">Read case study <i class="fa fa-arrow-right"></i></a>
+  </div>
+</article>

@@ -1,7 +1,9 @@
 ---
-layout: default
+layout: case-study
 modal-id: 6
 title: TryHackMe Journal
+group: labs
+icon: fa-terminal
 img: tryhackme.png
 alt: image-alt
 
